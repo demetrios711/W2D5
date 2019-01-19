@@ -7,12 +7,22 @@ class HashSet
   end
 
   def insert(key)
+    return false unless @store << [key, nil]
   end
 
   def include?(key)
+    @store.each {|buckyboy| return true if buckyboy.include?(key) }
+    false
   end
 
   def remove(key)
+    @store.each do |arr|
+      if arr.include(key)
+        arr.delete(self)
+        count -= 1
+      end
+    end
+
   end
 
   private
